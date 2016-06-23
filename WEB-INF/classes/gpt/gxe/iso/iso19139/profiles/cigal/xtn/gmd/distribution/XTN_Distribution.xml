@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!--  simplified distribution gmd:MD_Metadata/gmd:distributionInfo -->      
+<g:element xmlns:g="http://www.esri.com/geoportal/gxe" 
+           xmlns:h="http://www.esri.com/geoportal/gxe/html"
+           g:targetName="gmd:distributionInfo" g:minOccurs="0" g:maxOccurs="1"
+           g:label="$i18n.catalog.iso19139.MD_Metadata.distributionInfo"
+           g:extends="$base/xtn/ui/UI_Element.xml"> 
+  <g:body>
+    <g:element g:targetName="gmd:MD_Distribution" g:minOccurs="0" g:maxOccurs="1"
+      g:i18nBase="catalog.iso19139.MD_Distribution"
+      h:tag="div" g:jsClass="gxe.control.Element">
+  
+      <!-- distribution format -->
+      <g:element g:targetName="gmd:distributionFormat" g:minOccurs="0" g:maxOccurs="unbounded"
+        g:extends="$base/xtn/ui/UI_Element.xml">
+        <g:body>
+          <g:element g:targetName="gmd:MD_Format" g:minOccurs="0" g:maxOccurs="1"
+            g:i18nBase="catalog.iso19139.MD_Format"
+            h:tag="div" g:jsClass="gxe.control.Element"> 
+            
+            <g:element g:targetName="gmd:name" g:minOccurs="1" g:maxOccurs="1"
+              g:extends="$base/schema/gco/basicTypes/CharacterString_PropertyType.xml"/>
+              
+            <g:element g:targetName="gmd:version" g:minOccurs="1" g:maxOccurs="1"
+              g:extends="$base/schema/gco/basicTypes/CharacterString_PropertyType.xml"/>
+
+<!-- DEBUT specification 20120313 DE/ADAUHR -->
+            <g:element g:targetName="gmd:specification" g:minOccurs="0" g:maxOccurs="1"
+              g:extends="$base/schema/gco/basicTypes/CharacterString_PropertyType.xml"/>
+<!-- FIN specification 20120313 DE/ADAUHR -->
+
+                
+          </g:element>
+        </g:body>
+      </g:element>
+  
+      <!-- online transfer options -->
+      <g:element g:targetName="gmd:transferOptions" g:minOccurs="0" g:maxOccurs="1"
+        h:tag="div" g:jsClass="gxe.control.Element">
+        <g:element g:targetName="gmd:MD_DigitalTransferOptions" g:minOccurs="0" g:maxOccurs="1"
+          h:tag="div" g:jsClass="gxe.control.Element"
+          g:i18nBase="catalog.iso19139.MD_DigitalTransferOptions"> 
+          <g:element g:targetName="gmd:onLine" g:minOccurs="0" g:maxOccurs="unbounded"
+            g:extends="$base/xtn/ui/UI_Element.xml">
+            <g:body>
+            
+              <g:element g:targetName="gmd:CI_OnlineResource" g:minOccurs="0" g:maxOccurs="1"
+                g:i18nBase="catalog.iso19139.CI_OnlineResource"
+                h:tag="div" g:jsClass="gxe.control.Element"> 
+              
+                <g:element g:targetName="gmd:linkage" g:minOccurs="1" g:maxOccurs="1"
+                  g:extends="$base/schema/gmd/citation/URL_PropertyType.xml"/>
+
+<!-- DEBUT protocol 20151225 DE/ADAUHR -->                
+                <g:element g:targetName="gmd:protocol" g:minOccurs="1" g:maxOccurs="1"
+                  g:extends="$base/schema/gco/basicTypes/CharacterString_PropertyType.xml">
+                  <g:body>
+                    <g:element>
+                      <g:body>
+                        <g:input g:extends="$base/core/ui/InputSelectOne.xml">
+                          <g:options g:i18nBase="catalog.mdParam.inspire.constraints.accesAndUse">
+                            <g:option g:label="" g:value="" />
+                            <g:option g:value="WWW:LINK-1.0-http--link" 
+                              g:label="Adresse Internet (URL)"/>
+                            <g:option g:value="WWW:DOWNLOAD-1.0-http--download" 
+                              g:label="Fichier à télécharger"/>    
+                            <g:option g:value="WWW:DOWNLOAD-1.0-ftp--download" 
+                              g:label="Fichier à télécharger par ftp"/> 
+                            <g:option g:value="OGC:WMS" 
+                              g:label="Flux WMS Web Map Service"/>    
+                            <g:option g:value="OGC:WFS" 
+                              g:label="Flux WFS Web Feature Service"/>    
+                            <g:option g:value="_other_" 
+                              g:label="Entrer le protocol" 
+                              g:isOther="true"/>        
+                          </g:options>
+                        </g:input>
+                      </g:body>
+                    </g:element>
+                  </g:body>   
+                </g:element>
+<!-- FIN protocol 20151225 DE/ADAUHR -->                
+
+
+
+<!-- DEBUT name+description 20120313 DE/ADAUHR -->
+                <g:element g:targetName="gmd:name" g:minOccurs="0" g:maxOccurs="1"
+                    g:extends="$base/schema/gco/basicTypes/CharacterString_PropertyType.xml"/>
+              
+                <g:element g:targetName="gmd:description" g:minOccurs="0" g:maxOccurs="1"
+                    g:extends="$base/schema/gco/basicTypes/CharacterString_PropertyType.xml"/>
+<!-- FIN name+description 20120313 DE/ADAUHR -->
+  
+                <g:element g:targetName="gmd:function" g:minOccurs="0" g:maxOccurs="1"
+                  g:extends="$base/schema/gmd/citation/CI_OnLineFunctionCode_PropertyType.xml"/>
+                    
+              </g:element>
+            </g:body>
+          </g:element>
+        </g:element>
+      </g:element> 
+      
+    </g:element>
+  </g:body>
+</g:element>

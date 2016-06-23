@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<g:element xmlns:g="http://www.esri.com/geoportal/gxe" 
+           xmlns:h="http://www.esri.com/geoportal/gxe/html"
+           g:targetName="gmx:FileName" g:valueType="xs:anyURI"
+           g:extends="$base/xtn/ui/UI_Wrapped_ElementTextOnly.xml"> 
+
+           <g:attribute g:extends="$base/schema/gmx/SRC.xml" 
+                  g:value="https://infogeo68.fr/Infogeo68/files/META/logo_Cd68.jpg"/>
+</g:element>
